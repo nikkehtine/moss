@@ -1,18 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout title="Moss">
-	<main>
-		Hello World
-	</main>
+    <main>
+        <Section id="left">
+            <!-- Left -->
+        </Section>
+        <div id="column">
+            <Section id="top">
+                <!-- Top -->
+            </Section>
+            <Section id="center">
+                <!-- Center -->
+                Hello World
+            </Section>
+            <Section id="bottom">
+                <!-- Bottom -->
+            </Section>
+        </div>
+        <Section id="right">
+            <!-- Right -->
+        </Section>
+    </main>
 </Layout>
 
 <style>
-	main {
-		padding: 1rem;
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    #column {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
