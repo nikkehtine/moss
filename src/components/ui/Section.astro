@@ -1,0 +1,17 @@
+---
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<style>
+    div {
+        flex-grow: 1;
+    }
+</style>
+
+<div id={id}>
+    <slot />
+</div>

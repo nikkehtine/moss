@@ -1,32 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+
+const isDev = import.meta.env.DEV;
 ---
 
 <Layout title="Moss">
     <main>
-        <Section id="left">
-            <!-- Left -->
-            1
-        </Section>
-        <div id="column">
+        <div class="column">
+            <Section id="left">
+                <!-- Left -->
+            </Section>
+        </div>
+        <div class="column center">
             <Section id="top">
                 <!-- Top -->
-                1
             </Section>
             <Section id="center">
                 <!-- Center -->
-                Hello World
             </Section>
             <Section id="bottom">
                 <!-- Bottom -->
-                3
             </Section>
         </div>
-        <Section id="right">
-            <!-- Right -->
-            2
-        </Section>
+        <div class="column">
+            <Section id="right">
+                <!-- Right -->
+            </Section>
+        </div>
     </main>
 </Layout>
 
@@ -36,13 +37,13 @@ import Section from "../components/Section.astro";
         height: 100dvh;
         display: flex;
         flex-direction: row;
-        & > .section {
-            width: 33.333%;
-            color: white;
-        }
     }
-    #column {
+    .column {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
+    }
+    .center {
+        flex-grow: 2;
     }
 </style>
