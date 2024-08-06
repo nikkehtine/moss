@@ -1,0 +1,44 @@
+---
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+
+const debug = true;
+
+// Debug stuff
+const getRandomColor = () =>
+    `hsl(${Math.floor(Math.random() * 300 + Math.random() * 60)} 75% 66%)`;
+let iSectionNumber = 0;
+---
+
+<style
+    define:vars={{
+        debug_randomColor: getRandomColor(),
+        id,
+    }}
+>
+    div {
+        flex-grow: 1;
+    }
+    .debug {
+        position: relative;
+        border: 4px solid var(--debug_randomColor);
+        &::before {
+            background-color: var(--debug_randomColor);
+            color: var(--debug_randomColor);
+            position: absolute;
+            content: "";
+            opacity: 12.5%;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+</style>
+
+<div id={id} class:list={["moss-section", { debug: debug }]}>
+    <slot />
+</div>
